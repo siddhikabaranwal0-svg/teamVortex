@@ -1,0 +1,207 @@
+.table-mgmt-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: calc(100vh - var(--topnav-height) - 48px);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.pb-3 { padding-bottom: 12px; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.legend-box {
+  display: flex;
+  gap: var(--space-md);
+  background-color: var(--surface-container-lowest);
+  padding: 6px 12px;
+  border-radius: var(--radius-default);
+  border: 1px solid var(--outline-variant);
+  box-shadow: var(--shadow-level-1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+}
+
+.dot.available { background: var(--surface-container-highest); border: 1px solid var(--outline-variant); }
+.dot.occupied { background: var(--primary); }
+.dot.reserved { background: var(--error); }
+
+.floor-grid {
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  gap: var(--space-md);
+  flex: 1;
+  min-height: 0;
+}
+
+.floor-canvas {
+  background-color: var(--surface-container-low);
+  background-image: radial-gradient(var(--surface-container-highest) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.floor-map {
+  width: 700px;
+  height: 480px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--outline-variant);
+  box-shadow: var(--shadow-level-1);
+  position: relative;
+}
+
+.table-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-level-1);
+  transition: all 0.2s ease;
+}
+
+.table-node:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-level-2);
+}
+
+.table-node.round {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+}
+
+.table-node.rect {
+  width: 120px;
+  height: 70px;
+  border-radius: var(--radius-default);
+}
+
+.table-node.booth {
+  width: 70px;
+  height: 160px;
+  border-radius: var(--radius-default);
+}
+
+.table-node.available {
+  background: var(--surface-container-highest);
+  border: 1px solid var(--outline-variant);
+}
+
+.table-node.occupied {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.table-node.reserved {
+  background: var(--error);
+  color: var(--on-error);
+}
+
+.rotated {
+  transform: rotate(-90deg);
+}
+
+.table-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-default);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-level-2);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.table-tooltip.tooltip-right {
+  bottom: auto;
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+}
+
+.tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--outline-variant);
+  padding-bottom: 4px;
+}
+
+.tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.floor-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-section {
+  padding: var(--space-md);
+}
+
+.reservations-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.res-card {
+  padding: var(--space-sm);
+  border-radius: var(--radius-default);
+  border: 1px solid var(--outline-variant);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.res-card:hover {
+  background: var(--surface-container-low);
+}
+
+.res-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .floor-grid {
+    grid-template-columns: 1fr;
+  }
+}
